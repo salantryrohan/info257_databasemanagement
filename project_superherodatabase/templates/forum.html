@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}Index{% endblock %}
+
+{% block head %}
+    {{ super() }}
+{% endblock %}    
+
+{% block navigation %}
+    {{ super() }}
+{% endblock %}   
+
+
+
+
+{% block content %}  
+
+<div class="container">
+
+
+{%if session.logged_in %}
+  
+
+<h1> home page </h1>
+
+
+
+  
+{% else %}
+<br><br><br>
+
+<p> You have to logged in to start a discussion. Please  <a href="/login">login here</a>. if you are new user <a href="/register"> register here.</a> </p>
+ 
+{% endif %}
+</div> 
+
+    
+
+
+
+{% endblock %}
+
+
+
+
+ 
+
+  
+

@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %}Index{% endblock %}
+
+{% block head %}
+    {{ super() }}
+{% endblock %}    
+
+{% block navigation %}
+    {{ super() }}
+{% endblock %}   
+
+
+
+
+{% block content %}  
+
+<div class="container">
+	{%if session.logged_in %}
+  
+{% else %}
+<br>
+
+<p> If you want to login,  <a href="/login">login here</a>. if you are new user <a href="/register"> register here </a> </p>
+ 
+{% endif %}
+
+<h4> Welcome to THE SUPERHERO DATABASE </h4>
+<hr>
+You can checkout your favourate Superheroes and their Enemies , Comic Universes and Creators(Authors). You can have fun exploring their superpowers and team affiliations.<hr>
+
+<img src = "/static/homepage.jpg" height="150px" width="300px" class="imageright"> 
+
+<hr>
+
+</div> 
+
+    
+
+
+
+{% endblock %}
+
+
+
+
+ 
+
+  
+

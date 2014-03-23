@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}Index{% endblock %}
+
+{% block head %}
+    {{ super() }}
+{% endblock %}    
+
+{% block navigation %}
+    {{ super() }}
+{% endblock %}   
+
+
+{% block content %} 
+
+<div class="container">
+<h2> Login using Email </h2>
+
+{%if session.logged_in %}
+
+<p> You are logged in as <a href = "#">{{ session.user }} </a> </p>
+
+{% else %} 
+
+{% if message %}
+	
+	
+	<div class="alert alert-error">
+	<button type="button" class="close" data-dismiss="alert">×</button>
+	<strong>{{ message.msg }}</strong>
+	</div>
+	 
+
+
+{% endif %} <br>
+
+  <form class="form-horizontal" action="/verify" id="verifyform" method = "POST">
+    
+      
+      <div class="control-group">
+        <label class="control-label" for="email">email</label>
+        <div class="controls">
+           <input type="text" placeholder="email" id="email" name="email"> 
+        </div>
+      </div>
+
+      
+
+       <div class="control-group">
+    <label class="control-label" for="shorturl">password</label>
+    <div class="controls">
+      <input type="password" id="password" placeholder="password" name="password">
+    </div>
+  </div>
+
+      <div class="control-group">      
+        <div class="controls">
+    <button class="btn btn-large btn-primary" id="check" type="submit">LOGIN!</button>
+        </div>
+      </div>
+    
+
+  
+    
+</form>
+
+{% endif %}    
+   </div> 
+
+{% endblock %}   

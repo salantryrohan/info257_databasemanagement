@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block title %}Index{% endblock %}
+
+{% block head %}
+    {{ super() }}
+{% endblock %}    
+
+{% block navigation %}
+    {{ super() }}
+{% endblock %}    
+
+
+{% block content %}
+
+
+  
+
+
+
+ <br>
+<div class="container">
+ 
+
+ 
+</div>
+
+
+<div class="container">
+
+      
+
+
+{% for key, value in teamsbyalphabet %}            
+    {% if value %}
+    <a href="#{{key}}" class="indexNr">{{key}}</a>
+
+    {% endif %}
+{% endfor %}    </p>
+
+
+
+{% if teamsbyalphabet %}
+
+    {% for key, value in teamsbyalphabet %}            
+    {% if value %}
+    <a name = "{{key}}" id= "{{key}}"> <h2>{{ key }} </h2></a>
+
+    
+      <ul class="bitgroupteam">
+      {% for val in value %}
+
+
+          <li id="{{key}}" class="bitlistteam">
+            
+             
+             <a id="{{ val[1] }}" href="/team/{{val[1]}}" >{{val[0]}}</a>
+          </li>        
+                  
+      {% endfor %}  
+      </ul>
+      {% endif %}
+
+    {% endfor %}    
+  
+
+{% endif %}
+
+
+
+</div> 
+   
+
+
+ {% endblock %}
+ 
+
+
+
+
+      
+    
+
+
+

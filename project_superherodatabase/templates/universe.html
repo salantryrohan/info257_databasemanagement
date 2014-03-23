@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block title %}Index{% endblock %}
+
+{% block head %}
+    {{ super() }}
+{% endblock %}    
+
+{% block navigation %}
+    {{ super() }}
+{% endblock %}    
+
+
+{% block content %}
+
+
+
+<div class="container">
+
+      
+
+
+{% for key, value in universebyalphabet %}            
+    {% if value %}
+    <a href="#{{key}}" class="indexNr">{{key}}</a>
+    {% endif %}
+    
+{% endfor %}
+
+
+
+{% if universebyalphabet %}
+
+    {% for key, value in universebyalphabet %}      
+    {% if value %}      
+    <a name = "{{key}}" id= "{{key}}"> <h2>{{ key }} </h2></a>
+        
+      
+          {% if value[0][0] %}
+          
+        <h3>  {{value[0][0]}}  </h3>
+          {%endif%}
+                
+
+          {%if value[0][1]%}
+          <ul>
+            {% for char in value[0][1]%}
+            <li>
+                <a id = "{{char.CharacterAlias}}" href="/character/{{char.CharacterID}}"> {{char.CharacterAlias}}
+                </a>
+                <img src="{{char.CharacterImage}}" alt="Smiley face" height="30" width="30">
+              </li><br>
+            {%endfor%}
+          </ul>
+            {%else%}
+            NOTHING !
+          {% endif %} 
+              
+      </ul>
+          
+    {% endif %}
+
+    {% endfor %}    
+  
+
+{% endif %}
+
+
+
+</div> 
+   
+
+
+ {% endblock %}
+ 
+
+
+
+
+      
+    
+
+
+

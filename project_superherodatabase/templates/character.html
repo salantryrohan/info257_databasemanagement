@@ -1,0 +1,193 @@
+{% extends "base.html" %}
+
+{% block title %}Index{% endblock %}
+
+{% block head %}
+    {{ super() }}
+{% endblock %}    
+
+{% block navigation %}
+    {{ super() }}
+{% endblock %}    
+
+
+{% block content %}
+
+<div class="tableHolder">
+
+  <div class="tableRow">
+    <div class="tableCaption"> Character Alias </div>
+    <div class="tableData"> {{char.CharacterAlias }} </div>
+ </div>
+
+<div class="tableRow">
+    <div class="tableCaption">Name </div>
+    <div class="tableData"> 
+      {{char.CharacterTitle }} 
+      {{char.CharacterFName }} 
+      {%if char.CharacterLName != "NULL" %} {{char.CharacterLName }} {%endif%}
+    </div>
+ </div>
+
+
+<div class="tableRow">
+    <div class="tableCaption"> Image </div>
+    <div class="tableData"> 
+      <img src = "{{char.CharacterImage}}" height="100" width = "100"> 
+      </div>
+ </div>
+
+<div class="tableRow">
+    <div class="tableCaption"> Alignment </div>
+    <div class="tableData"> 
+      {{char.CharacterAlignment }} 
+      </div>
+ </div>
+
+<div class="tableRow">
+    <div class="tableCaption"> Gender </div>
+    <div class="tableData"> 
+      {{char.CharacterGender }} 
+      </div>
+ </div>
+
+
+<div class="tableRow">
+    <div class="tableCaption"> Origin </div>
+    <div class="tableData"> 
+      {{char.CharacterOrigin }} 
+      </div>
+ </div>
+
+<div class="tableRow">
+<div class="tableCaption"><u><h4>Browse using tabs</h4></u></div>
+<div class="tableData"> 
+
+<ul class="nav nav-tabs" id="myTab">
+  <li class="active"><a href="#rivals" data-toggle="tab">ENEMIES</a></li>
+  <li><a href="#ability" data-toggle="tab">ABILITIES</a></li>
+  <li><a href="#equipment" data-toggle="tab">EQUIPMENT</a></li>
+  <li><a href="#team" data-toggle="tab">TEAMS</a></li>
+</ul>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="rivals">
+    {% if rivals%}
+    <ul> 
+      {% for rec in rivals%}
+
+      <li> 
+         <a id = "{{rec[1].CharacterAlias}}" href="/character/{{rec[1].CharacterID}}"> {{rec[1].CharacterAlias}} </a>
+
+         <img src="{{rec[1].CharacterImage}}" height="50" width="50"></img>
+      </li> <br>
+
+
+      {% endfor %}
+    </ul> 
+    {% else %}
+    <h3> This character has no enemies. </h3>  
+    {% endif %}
+    
+
+
+  </div>
+  <div class="tab-pane" id="ability">
+
+   
+
+    {% if ability%}
+     <table class="table table-striped">
+      <tr> <th> Name </th> <th> Type </th>
+        <tbody>
+
+    
+      {% for rec in ability%}
+      <tr>
+      
+    <td><a id = "{{rec[1].AbilityName}}">{{rec[1].AbilityName}} </a> </td>
+      
+    <td> {{rec[1].AbilityType}}  </td>
+  </tr>
+      {% endfor %}
+    </tbody>
+    </table> 
+    {% else %}
+    <h3> This character has no abilities! </h3>  
+    {% endif %}
+
+  </div>
+  <div class="tab-pane" id="equipment">
+
+    {% if equipment%}
+     <table class="table table-striped">
+      <tr> <th> Armor/Weapon ? </th><th> Name </th> <th> Type </th>
+        <tbody>
+
+    
+      {% for rec in equipment%}
+      <tr>
+        <td> {{rec[1].EquipmentType}}</td>
+      <td>
+         <a id = "{{rec[1].Name}}"> {{rec[1].Name }} </a>
+        </td>
+         
+      <td> {{rec[1].Type}} </td>
+    </tr>
+
+      {% endfor %}
+      </tbody>
+    </table> 
+    {% else %}
+    <h3> This character has no Equipment </h3>  
+    {% endif %}
+  
+  </div>
+  
+  <div class="tab-pane" id="team">
+
+
+    {% if teams %}
+    <ul> 
+      {% for rec in teams%}
+
+      <li> 
+         <a id = "{{rec[1].TeamName}}" href="/team/{{rec[1].TeamID}}"> {{rec[1].TeamName}} </a>
+
+         
+      </li> <br>
+
+
+      {% endfor %}
+    </ul> 
+    {% else %}
+    <h3> This character has no Teams </h3>  
+    {% endif %}
+
+  </div>
+
+
+</div>
+      </div>
+ </div>
+
+</div>
+ 
+
+
+
+
+
+
+
+ {% endblock %}
+ 
+
+
+
+
+      
+    
+
+
+

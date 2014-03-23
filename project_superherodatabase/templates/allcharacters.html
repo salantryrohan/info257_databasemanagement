@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block title %}Index{% endblock %}
+
+{% block head %}
+    {{ super() }}
+{% endblock %}    
+
+{% block navigation %}
+    {{ super() }}
+{% endblock %}    
+
+
+{% block content %}
+
+
+  
+
+
+
+ <br>
+<div class="container">
+ 
+
+ 
+</div>
+
+
+<div class="container">
+
+      
+
+
+{% for key, value in charsbyalphabet %}            
+    {% if value %}
+    <a href="#{{key}}" class="indexNr">{{key}}</a>
+
+    {% endif %}
+{% endfor %}    </p>
+
+
+
+{% if charsbyalphabet %}
+
+    {% for key, value in charsbyalphabet %}            
+    {% if value %}
+    <a name = "{{key}}" id= "{{key}}"> <h2>{{ key }} </h2></a>
+
+    
+      <ol class="bitgroup">
+      {% for val in value %}
+
+
+          <li id="{{key}}" class="bitlist">
+            
+             <img src="{{ val[1] }} " alt="Smiley face" height="50" width="50">
+             <a id="{{val[2]}}" href="/character/{{val[2]}}">{{val[0]}}</a>
+           
+          </li>        
+                  
+      {% endfor %}  
+      </ol>
+      {% endif %}
+
+    {% endfor %}    
+  
+
+{% endif %}
+
+
+
+</div> 
+   
+
+
+ {% endblock %}
+ 
+
+
+
+
+      
+    
+
+
+

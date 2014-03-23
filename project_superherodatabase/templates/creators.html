@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block title %}Index{% endblock %}
+
+{% block head %}
+    {{ super() }}
+{% endblock %}    
+
+{% block navigation %}
+    {{ super() }}
+{% endblock %}    
+
+
+{% block content %}
+
+
+
+<div class="container">
+
+      
+
+
+{% for key, value in creatorbyalphabet %}            
+    {% if value %}
+    <a href="#{{key}}" class="indexNr">{{key}}</a>
+    {% endif %}
+    
+{% endfor %}
+
+
+
+{% if creatorbyalphabet %}
+
+    {% for key, value in creatorbyalphabet %}      
+    {% if value %}      
+    <a name = "{{key}}" id= "{{key}}"> <h2>{{ key }} </h2></a>
+        
+      <ul>
+          {% if value[0][0] %}
+        <h3>  {{value[0][0]}} 
+          {%endif%}
+          ,
+           
+           {% if value[0][1] %}
+          {{ value[0][1]}} 
+           {% endif %}
+
+          created </h3>
+          </a>
+
+          {%if value[0][2]%}
+            {% for char in value[0][2]%}
+                <a id = "{{char.CharacterAlias}}" href="/character/{{char.CharacterID}}"> {{char.CharacterAlias}} , 
+                </a>
+            {%endfor%}
+            {%else%}
+            NOTHING !
+          {% endif %} 
+              
+      </ul>
+          
+    {% endif %}
+
+    {% endfor %}    
+  
+
+{% endif %}
+
+
+
+</div> 
+   
+
+
+ {% endblock %}
+ 
+
+
+
+
+      
+    
+
+
+

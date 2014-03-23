@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block title %}Index{% endblock %}
+
+{% block head %}
+    {{ super() }}
+{% endblock %}    
+
+{% block navigation %}
+    {{ super() }}
+{% endblock %}    
+
+
+{% block content %}
+
+
+  
+
+<div id="content">
+
+ <br><br>
+<div class="tableHolder">
+
+  <div class="tableRow">
+    <div class="tableCaption"> Team Name </div>
+    <div class="tableData"> {{teamrec.TeamName }} </div>
+ </div> 
+
+ <div class="tableRow">
+    <div class="tableCaption"> Description </div>
+  <div class="tableData"> {{ teamrec.TeamDesc }}</div>
+
+  
+ </div> <br><br>
+ 
+ <div class="tableRow">
+    <div class="tableCaption"> Members </div>
+    <div class="tableData">
+
+    <ul> 
+      {% for charid,alias,name,img in memberrec %}
+      
+      <li> 
+         <a id = "{{alias}}" href="/character/{{charid}}"> {{alias}} ({{name}}) </a>
+         <img src="{{img}}" height="50" width="50"></img>
+
+
+      </li> <br> 
+      
+      {% endfor %}
+      </ul>
+    </div>
+  </div>
+
+</div>
+
+
+</div>
+
+
+
+
+ {% endblock %}
+ 
+
+
+
+
+      
+    
+
+
+

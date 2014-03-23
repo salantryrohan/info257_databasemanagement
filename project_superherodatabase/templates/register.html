@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block title %}Index{% endblock %}
+
+{% block head %}
+    {{ super() }}
+{% endblock %}    
+
+{% block navigation %}
+    {{ super() }}
+{% endblock %}   
+
+
+
+
+{% block content %} 
+
+
+
+<div class="container"> 
+  
+ {% if session.logged_in %}
+<br>
+<p> You are logged in as {{ session.user }} Click  <a href="/logout">logout</a> to register with a new username. 
+
+{% else %} 
+
+<br><br>
+
+<form class="form-horizontal" action="/registerverify" id="registerform" method = "POST">
+    <br>
+      
+      <div class="control-group">
+        <label class="control-label" for="email">email</label>
+        <div class="controls">
+           <input type="text" placeholder="email" id="email" name="email"> 
+        </div>
+      </div>
+
+      
+
+       <div class="control-group">
+    <label class="control-label" for="shorturl">password</label>
+    <div class="controls">
+      <input type="password" id="password" placeholder="password" name="password">
+    </div>
+  </div>
+
+      <div class="control-group">      
+        <div class="controls">
+    <button class="btn btn-large btn-primary" id="registerverify" type="submit">REGISTER</button>
+        </div>
+      </div>  
+</form> 
+{% endif %}
+  
+    
+   </div> 
+
+{% endblock %}   
