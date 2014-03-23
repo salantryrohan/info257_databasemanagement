@@ -1,0 +1,20 @@
+What are the names and addresses of the diveshop customers who are renting masks?
+
+What are the names of the wildlife that Mary Rioux might see on her trip. Are there any Shipwrecks there (give names)?
+
+What sunken ships might be candidates for treasure hunters whose destination is New Jersey?
+
+Who is paying the maximum amount for single type of rental equipment (use price * quantity to determine amount)?
+
+At how many sites might you see a "Nassau Grouper"?
+
+What are the names of customers who are paying in cash?
+
+Produce a list of all equipment being rented for a dive vacation that costs more than $30000, make the list in descending order of the rental price of the equipment.
+
+Who is renting teal colored equipment? (see DIVESTOK.Description)
+
+Which locations have an avg temperature of more than 75 degrees Farenheit and a travel cost of under $4000?
+
+Make up two queries of your own and run them turn in the queries and the results.
+
