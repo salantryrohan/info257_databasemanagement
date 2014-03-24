@@ -1,0 +1,24 @@
+adding and creating ssh keys to your git account: 
+https://help.github.com/articles/generating-ssh-keys
+
+
+create repo in github.com
+perform "new repository"
+copy ssh key to "deployed keys" section in settings
+
+
+
+commands to intialize/clone repository: 
+
+initialize repository: git init
+** by default, we are on the master branch
+point it to a remote repository: git remote add origin "git address on github.com"
+** not required if you do a git clone
+
+add, commit remove and push
+
+add a file to staging: git add 
+commit the file to local repository with message: git commit
+remove a file from git: git rm <filename>
+push file to remote repository: git push origin master
+
