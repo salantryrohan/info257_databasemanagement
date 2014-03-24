@@ -1,0 +1,27 @@
+-- locally
+cd into the project directory and run the command "python app.py" on the command line. Flask gives
+us an option of testing locally. I am running the local webserver on port 5000. Go to localhost:5000 
+to access the application.
+
+
+-- heroku (continous integration and deployment)
+The application has also been deployed on heroku.com at the url  http://superherodatabase.herokuapp.com/
+Details on the installation can be found here : 
+
+https://devcenter.heroku.com/articles/getting-started-with-python
+steps: 
+
+1. install heroku toolbelt and create heroku account
+
+2. heroku create (this step creates a remote git repository from the contents of the folder)
+** steps 1 and 2 are done only once
+** Procfile tells heroku the file to run to start the app and the webserver to use
+requirements.txt has dependencies heroku needs to install while deploying the app (Flask,pyscopg2,gunicorn and other packages etc..)
+
+3. perform git push heroku master
+
+4. heroku ps:scale web=1 (run a unit dyno). we can check status of the web app by heroku ps command.
+* heroku logs to check if something went wrong
+* database server instance needs to be started. the address of the database server instance 
+is used in the config.py file to intialize the db_session variable.
+
